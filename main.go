@@ -8,11 +8,12 @@ import (
 	"strings"
 	"syscall"
 
+	"github.com/dergoegge/hackupc-twitter-analysis/config"
 	"github.com/dghubble/go-twitter/twitter"
 )
 
 func main() {
-	httpClient := config.Load()
+	httpClient := config.LoadHTTPClient()
 
 	client := twitter.NewClient(httpClient)
 

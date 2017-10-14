@@ -5,6 +5,7 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"fmt"
 
 	"github.com/dghubble/oauth1"
 )
@@ -19,7 +20,7 @@ type config struct {
 
 /*LoadHTTPClient ...*/
 func LoadHTTPClient() *http.Client {
-	configFile, err := os.Open("/config/config.json")
+	configFile, err := os.Open("config/config.json")
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -27,8 +28,11 @@ func LoadHTTPClient() *http.Client {
 	var conf config
 
 	jsonParser := json.NewDecoder(configFile)
-	jsonParser.Decode(&conf)
-
+	err = jsonParser.Decode(&conf) 
+	if err != nil {
+		log.Fatal(err)
+	}
+	
 	config := oauth1.NewConfig(conf.ConfigKey, conf.ConfigSecret)
 	token := oauth1.NewToken(conf.AccessKey, conf.AccessSecret)
 
