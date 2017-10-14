@@ -25,7 +25,7 @@ func main() {
 	config := sarama.NewConfig()
 
 	config.Producer.Return.Successes = false
-	producer, err := sarama.NewAsyncProducer([]string{"54.186.93.122:9092"}, config)
+	producer, err := sarama.NewAsyncProducer([]string{"54.186.93.122:9092", "54.218.59.178:9092"}, config)
 	if err != nil {
 		panic(err)
 	}
