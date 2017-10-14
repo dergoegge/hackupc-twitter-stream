@@ -24,6 +24,8 @@ func LoadHTTPClient() *http.Client {
 	if err != nil {
 		log.Fatal(err)
 	}
+	
+	defer configFile.Close()
 
 	var conf config
 
