@@ -5,7 +5,6 @@ import (
 	"log"
 	"net/http"
 	"os"
-	"fmt"
 
 	"github.com/dghubble/oauth1"
 )
