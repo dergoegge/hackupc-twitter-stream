@@ -1,3 +1,7 @@
+/*
+ *Loads the twitter api keys from the config.json file provided in the config folder.
+ */
+ 
 package config
 
 import (
